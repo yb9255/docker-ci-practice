@@ -1,0 +1,10 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY ./package*.json ./
+RUN npm install
+
+# Docker Volumes를 사용할 때는 다음 라인이 필요하지 않으나, 리마인더 차원에서 남겨둠
+COPY ./ ./
+CMD ["npm", "run", "start"]
